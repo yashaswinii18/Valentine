@@ -1,40 +1,77 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>For You ❤️</title>
+
   <style>
     body {
+      margin: 0;
+      height: 100vh;
       font-family: Arial, sans-serif;
       background: #ffeef2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
       text-align: center;
-      padding-top: 120px;
     }
+
     h1 {
       font-size: 26px;
+      margin-bottom: 40px;
     }
+
+    .buttons {
+      position: relative;
+      width: 100%;
+      height: 200px;
+    }
+
     button {
-      padding: 12px 24px;
+      padding: 14px 26px;
       font-size: 18px;
       border: none;
-      border-radius: 25px;
-      margin: 15px;
+      border-radius: 30px;
       cursor: pointer;
+      position: absolute;
     }
+
     .yes {
       background: #ff4d6d;
       color: white;
+      left: 50%;
+      transform: translateX(-120px);
     }
+
     .no {
       background: #ccc;
+      left: 50%;
+      transform: translateX(40px);
     }
   </style>
 </head>
+
 <body>
 
   <h1>Will you be my Valentine? 🥺❤️</h1>
 
-  <button class="yes" onclick="location.href='yes.html'">Yes 💖</button>
-  <button class="no" onclick="alert('You don’t have a choice 😌')">No 😝</button>
+  <div class="buttons">
+    <button class="yes" onclick="location.href='yes.html'">Yes 💖</button>
+    <button class="no" id="noBtn">No 😠</button>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * 300 - 150;
+      const y = Math.random() * 200 - 100;
+
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+  </script>
 
 </body>
 </html>
