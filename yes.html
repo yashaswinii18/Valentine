@@ -1,100 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Valentine 💌</title>
+  <title>Happy Valentine’s Day ❤️</title>
 
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background-color: #fff0f5;
       font-family: Arial, sans-serif;
+      background: #ffeef2;
       text-align: center;
       overflow-x: hidden;
     }
 
     h1 {
-      margin-top: 28px;
-      font-size: 28px;
-      color: #222;
-      position: relative;
-      z-index: 2;
+      margin-top: 30px;
     }
 
     img {
-      width: 260px;
-      max-width: 90%;
-      border-radius: 18px;
-      margin: 18px auto;
-      display: block;
-      position: relative;
-      z-index: 2;
-    }
-
-    .countdown-box {
-      background: #ffe0ea;
-      margin: 14px auto 6px;
-      padding: 14px 16px;
-      border-radius: 16px;
-      width: fit-content;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-      position: relative;
-      z-index: 2;
-    }
-
-    .countdown-title {
-      font-size: 14px;
-      color: #555;
-      margin-bottom: 6px;
-    }
-
-    .countdown {
-      font-size: 20px;
-      font-weight: bold;
-      color: #ff3b7a;
+      width: 85%;
+      max-width: 350px;
+      border-radius: 20px;
+      margin-top: 20px;
     }
 
     .message {
       max-width: 90%;
-      margin: 18px auto 40px;
+      margin: 30px auto;
       font-size: 18px;
       line-height: 1.7;
-      color: #333;
-      position: relative;
-      z-index: 2;
     }
 
-    /* Floating hearts */
     .heart {
       position: fixed;
-      bottom: -20px;
+      bottom: -10px;
       font-size: 22px;
       animation: floatUp 6s linear infinite;
-      opacity: 0.8;
-      z-index: 1;
     }
 
     @keyframes floatUp {
-      from { transform: translateY(0); opacity: 0.8; }
-      to { transform: translateY(-110vh); opacity: 0; }
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-100vh); opacity: 0; }
     }
 
-    /* Music button */
     #musicBtn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #ff5c8a;
-      color: #fff;
+      background: #ff4d6d;
+      color: white;
       border: none;
-      padding: 12px 16px;
+      padding: 12px 24px;
       border-radius: 30px;
-      font-size: 14px;
+      font-size: 16px;
       cursor: pointer;
-      z-index: 5;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+      margin-top: 20px;
+    }
+
+    .countdown-box {
+      background: white;
+      padding: 15px;
+      border-radius: 15px;
+      width: fit-content;
+      margin: 25px auto;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -108,40 +74,36 @@
 
   <!-- COUNTDOWN -->
   <div class="countdown-box">
-    <div class="countdown-title">Until we meet 🥹</div>
-    <div id="countdown" class="countdown">Loading…</div>
+    Until we meet 🥹❤️
+    <div id="countdown">Loading...</div>
   </div>
 
   <!-- MESSAGE -->
   <div class="message">
-    Happy Valentine’s Day to my Valentine, forever. ❤️
-    <br><br>
+    Happy Valentine’s Day to my Valentine, forever. ❤️<br><br>
 
     I know I overthink sometimes, and I know the distance makes it worse.
     When you don’t reply, my mind runs everywhere — not because I doubt you,
-    but because I care too much.
-    <br><br>
+    but because I care too much. 💗<br><br>
 
     I don’t need big things from you; I just need to know you’re okay,
-    you reached home safe, and you’re thinking of me sometimes.
-    <br><br>
+    you reached home safe, and you’re thinking of me sometimes. 🫶<br><br>
 
     Being away from you isn’t easy, but loving you makes it worth it.
-    Even on the days I miss you a little extra, you’re still my safe place.
-    <br><br>
+    Even on the days I miss you a little extra, you’re still my safe place. 💞<br><br>
 
-    Always you.
+    Always you. Until we meet in January 2027. ❤️
   </div>
 
   <!-- MUSIC -->
-  <audio id="bgMusic" loop>
+  <button id="musicBtn" onclick="playMusic()">Play music 💕</button>
+
+  <audio id="bgMusic">
     <source src="love-music.mp3" type="audio/mpeg">
   </audio>
 
-  <button id="musicBtn" onclick="playMusic()">Play music 🎶</button>
-
   <script>
-    /* Floating hearts */
+    // Floating hearts
     function createHeart() {
       const heart = document.createElement("div");
       heart.className = "heart";
@@ -153,14 +115,14 @@
     }
     setInterval(createHeart, 400);
 
-    /* Music play (user interaction required) */
+    // Music play
     function playMusic() {
       const music = document.getElementById("bgMusic");
       music.play();
-      document.getElementById("musicBtn").innerText = "Playing 💕";
+      document.getElementById("musicBtn").innerText = "Playing 💞";
     }
 
-    /* COUNTDOWN TO JAN 1, 2027 */
+    // Countdown to Jan 1, 2027
     const targetDate = new Date("2027-01-01T00:00:00");
 
     function updateCountdown() {
@@ -168,7 +130,7 @@
       const diff = targetDate - now;
 
       if (diff <= 0) {
-        document.getElementById("countdown").innerText = "IT’S TIME 💞";
+        document.getElementById("countdown").innerText = "IT’S TIME 💖";
         return;
       }
 
@@ -181,8 +143,8 @@
         `${days} days ${hours}h ${minutes}m ${seconds}s`;
     }
 
-    updateCountdown();
     setInterval(updateCountdown, 1000);
+    updateCountdown();
   </script>
 
 </body>
