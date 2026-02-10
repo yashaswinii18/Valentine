@@ -1,113 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Happy Valentine’s Day ❤️</title>
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #ffeef2;
-  text-align: center;
-  overflow-x: hidden;
-}
-
-h1 {
-  margin-top: 30px;
-}
-
-img {
-  width: 85%;
-  max-width: 350px;
-  border-radius: 20px;
-  margin-top: 20px;
-}
-
-.message {
-  max-width: 90%;
-  margin: 30px auto;
-  font-size: 18px;
-  line-height: 1.7;
-}
-
-.heart {
-  position: fixed;
-  bottom: -10px;
-  font-size: 22px;
-  animation: floatUp 6s linear infinite;
-}
-
-@keyframes floatUp {
-  from { transform: translateY(0); opacity: 1; }
-  to { transform: translateY(-100vh); opacity: 0; }
-}
-
-#musicBtn {
-  background: #ff4d6d;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 30px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
-.countdown-box {
-  background: white;
-  padding: 15px;
-  border-radius: 15px;
-  width: fit-content;
-  margin: 25px auto;
-  font-weight: bold;
-}
-</style>
+  <meta charset="UTF-8">
+  <title>For You ❤️</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffeef2;
+      text-align: center;
+      padding-top: 120px;
+    }
+    h1 {
+      font-size: 26px;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      border: none;
+      border-radius: 25px;
+      margin: 15px;
+      cursor: pointer;
+    }
+    .yes {
+      background: #ff4d6d;
+      color: white;
+    }
+    .no {
+      background: #ccc;
+    }
+  </style>
 </head>
-
 <body>
 
-<h1>Happy Valentine’s Day ❤️</h1>
+  <h1>Will you be my Valentine? 🥺❤️</h1>
 
-<img src="love.jpg" alt="Us">
+  <button class="yes" onclick="location.href='yes.html'">Yes 💖</button>
+  <button class="no" onclick="alert('You don’t have a choice 😌')">No 😝</button>
 
-<div class="countdown-box">
-  Until we meet 🥺❤️
-  <div id="countdown">Loading...</div>
-</div>
+</body>
+</html>
 
-<div class="message">
-Happy Valentine’s Day to my Valentine, forever. ❤️<br><br>
-
-I know I overthink sometimes, and I know the distance makes it worse.
-When you don’t reply, my mind runs everywhere — not because I doubt you,
-but because I care too much. 💕<br><br>
-
-I don’t need big things from you. I just need to know you’re okay,
-you reached home safe, and you’re thinking of me sometimes.<br><br>
-
-Being away from you isn’t easy, but loving you makes it worth it.
-Even on the days I miss you a little extra, you’re still my safe place.<br><br>
-
-Always you. Until we meet in January 2027. ❤️
-</div>
-
-<button id="musicBtn" onclick="playMusic()">Play music 💞</button>
-
-<audio id="bgMusic">
-  <source src="love-music.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-function createHeart() {
-  const heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerText = "💗";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
-  document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 6000);
-}
-setInterval(createHeart, 400);
-
-function playMusic() {
-  const music = document.getElementById("bgMusic");
