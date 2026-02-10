@@ -12,6 +12,7 @@
       background-color: #fff0f5;
       font-family: Arial, sans-serif;
       text-align: center;
+      overflow-x: hidden;
     }
 
     h1 {
@@ -26,6 +27,8 @@
       border-radius: 18px;
       margin: 20px auto;
       display: block;
+      z-index: 2;
+      position: relative;
     }
 
     .message {
@@ -34,6 +37,43 @@
       font-size: 18px;
       line-height: 1.7;
       color: #333;
+      z-index: 2;
+      position: relative;
+    }
+
+    /* FLOATING HEARTS */
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 24px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+      }
+    }
+
+    /* Music button */
+    #musicBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ff5c8a;
+      color: white;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 30px;
+      font-size: 14px;
+      cursor: pointer;
+      z-index: 5;
     }
   </style>
 </head>
@@ -63,6 +103,38 @@
 
     Always you.
   </div>
+
+  <!-- MUSIC -->
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="musicBtn" onclick="playMusic()">Play music 🎶</button>
+
+  <script>
+    // Floating hearts
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerText = "💗";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+
+    setInterval(createHeart, 400);
+
+    // Music play (user interaction required)
+    function playMusic() {
+      const music = document.getElementById("bgMusic");
+      music.play();
+      document.getElementById("musicBtn").innerText = "Playing 💕";
+    }
+  </script>
 
 </body>
 </html>
