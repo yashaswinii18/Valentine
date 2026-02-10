@@ -20,14 +20,7 @@
 
     h1 {
       font-size: 26px;
-      margin-bottom: 20px;
-    }
-
-    #tease {
-      font-size: 18px;
-      margin-bottom: 30px;
-      color: #ff4d6d;
-      min-height: 24px;
+      margin-bottom: 40px;
     }
 
     .buttons {
@@ -43,14 +36,15 @@
       border-radius: 30px;
       cursor: pointer;
       position: absolute;
-      transition: transform 0.1s ease; /* FAST movement */
+      transition: transform 0.08s ease; /* very fast movement */
+      white-space: nowrap;
     }
 
     .yes {
       background: #ff4d6d;
       color: white;
       left: 50%;
-      transform: translateX(-120px);
+      transform: translateX(-140px);
     }
 
     .no {
@@ -64,7 +58,6 @@
 <body>
 
   <h1>Will you be my Valentine? 🥺❤️</h1>
-  <div id="tease"></div>
 
   <div class="buttons">
     <button class="yes" onclick="location.href='yes.html'">
@@ -78,9 +71,8 @@
 
   <script>
     const noBtn = document.getElementById("noBtn");
-    const tease = document.getElementById("tease");
 
-    const messages = [
+    const texts = [
       "Are you sure? 😠",
       "Think again 😤",
       "Wrong answer 😠",
@@ -89,18 +81,21 @@
       "Nice try 😠"
     ];
 
-    noBtn.addEventListener("mouseover", moveButton);
-    noBtn.addEventListener("click", moveButton);
+    let index = 0;
 
-    function moveButton() {
-      const x = Math.random() * window.innerWidth - window.innerWidth / 2;
-      const y = Math.random() * window.innerHeight - window.innerHeight / 2;
+    noBtn.addEventListener("mouseover", moveAndChange);
+    noBtn.addEventListener("click", moveAndChange);
+
+    function moveAndChange() {
+      // Change button text in sequence
+      noBtn.innerText = texts[index];
+      index = (index + 1) % texts.length;
+
+      // Move button fast in random direction
+      const x = Math.random() * 500 - 250;
+      const y = Math.random() * 300 - 150;
 
       noBtn.style.transform = `translate(${x}px, ${y}px)`;
-
-      const randomMsg =
-        messages[Math.floor(Math.random() * messages.length)];
-      tease.innerText = randomMsg;
     }
   </script>
 
